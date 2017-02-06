@@ -3,11 +3,16 @@
 
     function productsService($http) {
 
+        const url = 'http://localhost:2095/products';
+
         let products = {
             list: []
         };
 
-        $http.get('http://localhost:2095/products').then(loadProducts);
+        $http.get(url).then(loadProducts, (e) => {
+            console.log('Error!');
+            console.log(e);
+        });
 
         function loadProducts(response) {
             products.list = response.data;

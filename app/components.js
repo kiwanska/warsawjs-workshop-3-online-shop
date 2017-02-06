@@ -37,7 +37,7 @@
         constructor() {
             this.template = `
                 <ul class="items-list">
-                    <item product="product" ng-repeat="product in $ctrl.products.list"></item>
+                    <item product="product" ng-repeat="product in $ctrl.products.list track by $index"></item>
                 </ul>
             `,
             this.controller = function(productsService) {
@@ -50,7 +50,7 @@
         constructor() {
             this.template = `
                 <ul class="cart">
-                    <cart-item cart="cart" ng-repeat="cart in $ctrl.cart.list"></cart-item>
+                    <cart-item cart="cart" ng-repeat="cart in $ctrl.cart.list track by $index"></cart-item>
                 </ul>
             `,
             this.controller = function(cartService) {
